@@ -2,7 +2,7 @@ from agency_swarm.agents import Agent
 
 
 class GroqAgent(Agent):
-    def __init__(self):
+    def __init__(self, model_id: str = 'llama-3.1-70b-versatile'):
         super().__init__(
             name="GroqAgent",
             description="uses llama3 with groq",
@@ -13,7 +13,7 @@ class GroqAgent(Agent):
             tools_folder="./tools",
             temperature=0.3,
             max_prompt_tokens=25000,
-            model="groq/llama3-8b-8192"
+            model=f"groq/{model_id}"
         )
         
     def response_validator(self, message):
